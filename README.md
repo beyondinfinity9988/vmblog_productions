@@ -50,7 +50,7 @@
 # Getting Started
 
 - Clone the Repository:
-  `git clone https://github.com/mercykknight/mercykknight.github.io.git`
+  `git clone https://github.com/beyondinfinity9988/vmblog_productions.git`
 - Set up Firebase:
 - Create a Firebase project and configure it in the code.
 - Follow the Firebase documentation for setting up and integrating with a web application.
