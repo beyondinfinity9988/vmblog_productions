@@ -1,4 +1,3 @@
-# vmblog_productions
 # Blogging Website
 
 > Blogging Website Project Documentation
@@ -51,7 +50,7 @@
 # Getting Started
 
 - Clone the Repository:
-  `git clone https://github.com/beyondinfinity9988/vmblog_productions.git`
+  `git clone https://github.com/mercykknight/mercykknight.github.io.git`
 - Set up Firebase:
 - Create a Firebase project and configure it in the code.
 - Follow the Firebase documentation for setting up and integrating with a web application.
@@ -68,4 +67,4 @@ Any kind of contributions will be welcome.
 
 # Project Credit:
 
-> Author: Vishal Mishra [@beyondinfinity9988]([https://github.com/beyondinfinity9988])
+> Author: Pratham Upadhyay [@prathamu200](https://github.com/prathamu200)

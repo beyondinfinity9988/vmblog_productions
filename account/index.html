@@ -1,0 +1,170 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="This is a blogging website, use it for creating your blogs and share your ideas to the world">
+        <link rel="icon" href="../static/img/logo.jpg" type="image/png">
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+
+    <title> Profile | Welcome to mercykknight</title>
+    <script type="module" src="account.js"></script>
+    <style>
+      .avatar{
+        border-radius: 20px;
+        height: 30px;
+        width: 30px;
+      }
+      .profile-drop{
+        text-decoration: none;
+        color: aliceblue;
+        margin-right: 5px;
+      }
+      .profile-banner{
+        background-color: gainsboro;
+        align-content: center;
+        align-self: center;
+        width:max-content;
+        margin-block: 40px;
+        padding: 4%;
+        border-radius: 5%;
+      }
+      
+      .dp{
+        height: 100px;
+        border: 3px solid;
+        border-radius: 100%;
+      }
+      input{
+        border-radius: 2px;
+        appearance: none;
+        background-color: #fff;
+        background-clip: padding-box;
+        border: 1px solid #ced4da;
+        margin-right: 0px;
+        padding: .375rem .75rem;
+        font-size: 1rem;
+        font-weight: 400;
+        line-height: 1.5;
+        border-radius: .25rem;
+        transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+      }
+      input[type="file"] {
+        width: auto;
+        overflow:hidden;
+      }
+    </style>
+  </head>
+  <body>
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="/dashboard">MercyKKnight</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="/dashboard">Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/contact.html">Contact Us</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/about.html">About</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/newpost">Create New Post</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/mypost">
+            My Post
+          </a>
+        </li>
+      </ul>
+      <li class="nav-item dropdown">
+        <a class="profile-drop" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+          <img class="avatar" id="avatar" src="/img/avatar.jpg">&nbsp;&nbsp;<span id='user'></span>
+        </a>
+        <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <li><a class="dropdown-item" href="/profile">Profile</a></li>
+          <li><a class="dropdown-item" href="/account">Account</a></li>
+          <li><input class="dropdown-item" type="submit" id="Logout" name="Logout" value="Logout"></li>
+        </ul>
+      </li> 
+    </div>
+  </div>
+</nav>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+<!-- <div align="right">
+  <input class="btn btn-primary" type="submit" id="Logout" name="Logout" value="Logout">
+</div> -->
+
+<center>
+  <div class="profile-banner">
+    <h1> Hello <span id="greet"></span>!</h1>
+  <div class="dp-box">
+    <img class="dp" id="profile-image" src="avatar.jpg"><br>
+    <input id = "fileInput" type="file" accept="image/*" onchange="previewImage(event)">
+  </div>
+  <div class="profile-detail">
+<br>
+  <h3>First Name: <input id='first_name' style="color: purple;" width="auto"><h3>
+  <h3>Last Name: <input id='last_name' style="color: purple;"><h3>
+  <h3>Username : <input id='username' style="color: purple;" disabled><h3>
+  <h3>Email_Add: <input type="email" id='email' style="color: purple;" disabled><h3>
+  <h3>Profession: <input id='profession' style="color: purple;"><h3>
+  <h3>About: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <input id='about' style="color: purple;"><h3>
+  <!-- <h3>Password: <input id='password' style="color: purple;"><h3> -->
+  <h3>Account Status: <span id='status' style="color: green;">Active</span><h3>
+<br>
+<button class="btn btn-success" id="update">Save Details</button> <button class="btn btn-danger" id="delete-user">Delete Account</button>
+  </div>
+</div>
+</center>
+<script>
+  function previewImage(event) {
+  const file = event.target.files[0];
+  const reader = new FileReader();
+  reader.onload = function() {
+    const img = document.getElementById('profile-image');
+    img.src = reader.result;
+  }
+  reader.readAsDataURL(file);
+}
+
+function resizeImage(file, callback) {
+  var reader = new FileReader();
+  reader.onload = function() {
+    var img = new Image();
+    img.onload = function() {
+      var canvas = document.createElement('canvas');
+      var ctx = canvas.getContext('2d');
+      var maxDim = 300;
+      var width = img.width;
+      var height = img.height;
+      if (width > height) {
+        if (width > maxDim) {
+          height *= maxDim / width;
+          width = maxDim;
+        }
+      } else {
+        if (height > maxDim) {
+          width *= maxDim / height;
+          height = maxDim;
+        }
+      }
+      canvas.width = width;
+      canvas.height = height;
+      ctx.drawImage(img, 0, 0, width, height);
+      canvas.toBlob(callback, 'image/jpeg', 0.8);
+    };
+    img.src = reader.result;
+  };
+  reader.readAsDataURL(file);
+}
+</script>
+</body>
+</html>
