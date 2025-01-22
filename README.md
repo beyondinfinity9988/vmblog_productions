@@ -67,4 +67,4 @@ Any kind of contributions will be welcome.
 
 # Project Credit:
 
-> Author: Pratham Upadhyay [@prathamu200](https://github.com/prathamu200)
+> Author: Vishal Mishra [@beyondinfinity9988](https://github.com/beyondinfinity9988/)
